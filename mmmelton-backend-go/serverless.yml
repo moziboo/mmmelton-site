@@ -1,0 +1,43 @@
+service: mmmelton-backend-go
+
+provider:
+  name: aws
+  runtime: provided.al2023
+  region: us-west-2
+  apiGateway:
+    restApiId: ${env:REST_API_ID}
+    restApiRootResourceId: ${env:REST_API_ROOT_ID}
+
+useDotenv: true
+
+package:
+  individually: true
+  exclude:
+    - ./**
+
+functions:
+  get:
+    handler: bootstrap
+    package:
+      artifact: bin/hello.zip
+    events:
+      - http:
+          path: /hello
+          method: get
+          cors: #if you change these, update the handler response headers as well
+            origins:
+              - "http://localhost:3000"
+              - "http://localhost:3001"
+              - "http://localhost:3002"
+              - "https://mmmelton.com"
+            headers:
+              - Api-Key
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+          authorizer:
+            type: TOKEN
+            authorizerId: ${env:AUTH_ID}
