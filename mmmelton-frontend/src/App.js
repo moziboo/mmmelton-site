@@ -7,7 +7,7 @@ function App() {
   const [message, setMessage] = React.useState('')
 
   React.useEffect(() => {
-    axios.get('https://api.mmmelton.com/hello', {
+    axios.get('https://api.mmmelton.com/sub', {
       headers: {
         'Api-Key': 'testeotesteo'
       }
