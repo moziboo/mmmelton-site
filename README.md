@@ -12,6 +12,7 @@
   - can't get DNS records to deploy properly
   - have to set up domains and certs manually
 - #### GENERALLY
+  - add recap for current state of project for when I come back and don't know what's going on
   - identify and document all manual steps
   - Github Runners - How do they work?
   - think about how this is going to be used for other sites
