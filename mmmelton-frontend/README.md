@@ -17,3 +17,7 @@
 - image
 - flowed text
 - videos
+
+### progress
+
+- 08-17-2024-01 made blog feed with cards but need to figure out vertical sizing with truncated descriptions
