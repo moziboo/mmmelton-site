@@ -23,8 +23,7 @@ const App: FC = () => {
         <Header title="MMMelton" toggle={toggle} onToggle={() => handleToggle()} />
       </div>
       <div className={`h-full grid grid-col-1 ${toggle ? 'sm:grid-cols-[1fr,250px]' : ''}`}>
-        <div id="Workspace" className="grid grid-rows-[auto,1fr,auto]">
-          <div />
+        <div id="TheStage" className="grid grid-rows-[1fr,auto] pt-[3.9rem]">
           <Main />
           <Footer />
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { childRoutes } from '../routes';
 
 interface HeaderProps {
     show: boolean;
@@ -24,12 +25,11 @@ const Sidebar: React.FC<HeaderProps> = ({ show, onToggle, onLink }) => {
                     </div>
                     <nav className="h-fit mt-4">
                         <ul>
-                            <li>
-                                <Link onClick={() => onLink()} to={"/one/"}>one</Link>
-                            </li>
-                            <li>
-                                <Link onClick={() => onLink()} to={"/two/"}>two</Link>
-                            </li>
+                            {childRoutes.map((route, index) => (
+                                <li key={index}>
+                                    <Link onClick={onLink} to={route.path}>{route.path.replace('/', '')}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>
