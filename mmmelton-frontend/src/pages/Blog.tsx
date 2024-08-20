@@ -12,7 +12,7 @@ const Blog: React.FC = () => {
     { 
       title: "Well worn daffodillo", 
       date: "Thursdey", 
-      description: "The way I found the place was anybody's quess, but I'd need to retroactively leave some breadcrumbs in reverse, to mark the rereturn pathway" 
+      description: "The way I found the place was anybody's guess, but I'd need to retroactively leave some breadcrumbs in reverse, to mark the rereturn pathway" 
     },
   ]
 
