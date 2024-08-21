@@ -33,7 +33,7 @@ func HandleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRes
 	// Create a response that includes the request payload and headers
 	resp := events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       "We prolly going to do GO things here",
+		Body:       "We prolly going to do GOON things here",
 		Headers:    headers,
 	}
 
