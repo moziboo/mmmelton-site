@@ -33,3 +33,5 @@
     it shows up @ <http://134.215.29.127> but TDS said it will change
 - 08-20-2024-01 dear progress/diary, i didn't do much today, but i did relearn how to set up serverless for go by remaking
     all the .gitignored files
+- 08-25-2024-01 pulled in my pretend aws tool for running go functions like lambdas and added a dynamo call
+- 08-25-2024-02 we have our first usecase for the site framework.... kelly's portfolio site :0
