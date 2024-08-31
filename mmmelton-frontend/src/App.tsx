@@ -1,20 +1,58 @@
-import {FC, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 
+interface UserProfile {
+  pk: string;
+  sk: string;
+  email: string;
+  pfp: string;
+  phone: string;
+  name: string;
+}
+
+const defaultUserProfile: UserProfile = {
+  pk: '',
+  sk: '',
+  email: '',
+  pfp: '',
+  phone: '',
+  name: '',
+}
+
 const App: FC = () => {
   const [toggle, updateToggle] = useState(false);
+  const [userProfile, updateUserProfile] = useState<UserProfile>(defaultUserProfile)
+
+  useEffect(() => {
+    // Simulate fetching data from an API
+    const fetchUserProfile = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/'); // Replace with your API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch user profile');
+        }
+        const data: UserProfile = await response.json();
+        updateUserProfile(data);
+        console.log("data: ", data)
+      } catch (err:any) {
+        throw new Error('catastrophe');
+      }
+    };
+
+    fetchUserProfile();
+  }, []); 
 
   const handleToggle = () => {
-      updateToggle(prev => !prev);
+      updateToggle(prev => !prev)
   }
 
   const handleLink = () => {
     window.scrollTo(0,0);
     if (window.innerWidth < 640)
-      handleToggle();
+      handleToggle()
   }
 
   return (
@@ -30,7 +68,7 @@ const App: FC = () => {
         <Sidebar show={toggle} onToggle={handleToggle} onLink={handleLink}/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

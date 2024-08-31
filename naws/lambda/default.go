@@ -19,11 +19,12 @@ import (
 var svc *dynamodb.Client
 
 type UserProfile struct {
-	PK    string `dynamodbav:"PK"`
-	SK    string `dynamodbav:"SK"`
-	Email string `dynamodbav:"Email"`
-	PfP   string `dynamodbav:"PfP"`
-	Phone string `dynamodbav:"Phone"`
+	PK    string `dynamodbav:"PK" json:"pk"`
+	SK    string `dynamodbav:"SK" json:"sk"`
+	Email string `dynamodbav:"Email" json:"email"`
+	PfP   string `dynamodbav:"PfP" json:"pfp"`
+	Phone string `dynamodbav:"Phone" json:"phone"`
+	Name  string `dynamodbav:"Name" json:"name"`
 }
 
 func Hello(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {

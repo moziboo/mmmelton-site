@@ -35,3 +35,4 @@
     all the .gitignored files
 - 08-25-2024-01 pulled in my pretend aws tool for running go functions like lambdas and added a dynamo call
 - 08-25-2024-02 we have our first usecase for the site framework.... kelly's portfolio site :0
+- 08-31-2024-01 added the json instructions to the go struct and pulled the user into the app component state
