@@ -24,6 +24,15 @@
   - Github Runners - How do they work?
   - think about how this is going to be used for other sites
 
+### RUNNING THE APP
+
+- need to create an aws account
+- create dynamodb table with some documents that fit the shapes found in the models package in the naws directory
+- set up aws creds so that naws can access the table
+- run "go run main.go" in the naws directory
+- create .env file with REACT_APP_TEST and other variables used in react app
+- run "npm install" and "npm start" to launch the frontend
+
 ### progress
 
 - 08-17-2024-01 made blog feed with cards but need to figure out vertical sizing with truncated descriptions
@@ -36,3 +45,6 @@
 - 08-25-2024-01 pulled in my pretend aws tool for running go functions like lambdas and added a dynamo call
 - 08-25-2024-02 we have our first usecase for the site framework.... kelly's portfolio site :0
 - 08-31-2024-01 added the json instructions to the go struct and pulled the user into the app component state
+- 09-02-2024-01 fyi you aren't handling the error scenario when the api is down in a graceful way
+- 09-02-2024-02 added a models package to naws that will define the dynamo entries for each type
+- 09-02-2024-03 I think it will help to have a .env file to load in config data
