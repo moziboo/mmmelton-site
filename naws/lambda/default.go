@@ -2,6 +2,7 @@ package lambda
 
 import (
 	"context"
+	"naws/models"
 	"naws/utils"
 
 	"encoding/json"
@@ -17,15 +18,6 @@ import (
 )
 
 var svc *dynamodb.Client
-
-type UserProfile struct {
-	PK    string `dynamodbav:"PK" json:"pk"`
-	SK    string `dynamodbav:"SK" json:"sk"`
-	Email string `dynamodbav:"Email" json:"email"`
-	PfP   string `dynamodbav:"PfP" json:"pfp"`
-	Phone string `dynamodbav:"Phone" json:"phone"`
-	Name  string `dynamodbav:"Name" json:"name"`
-}
 
 func Hello(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	headers := utils.HandleCORS(req)
@@ -49,7 +41,7 @@ func Hello(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, e
 	}
 
 	// Unmarshal the result into a User struct
-	var userprofile UserProfile
+	var userprofile models.UserProfile
 	err = attributevalue.UnmarshalMap(result.Item, &userprofile)
 	if err != nil {
 		log.Fatalf("failed to unmarshal item into struct, %v", err)

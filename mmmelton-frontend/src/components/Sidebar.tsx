@@ -9,6 +9,7 @@ interface HeaderProps {
 }
 
 const Sidebar: React.FC<HeaderProps> = ({ show, onToggle, onLink }) => {
+    const envTest = process.env.REACT_APP_TEST
     if (!show) {
         return null;
     } else {
@@ -18,6 +19,7 @@ const Sidebar: React.FC<HeaderProps> = ({ show, onToggle, onLink }) => {
                     <div className="grid grid-cols-[1fr,25px]">
                         <div>
                             <p>menu</p>
+                            <p>{envTest}</p>
                         </div>
                         <div className="cursor-pointer" onClick={() => onToggle()}>
                             <p className="text-center">o</p>
