@@ -27,7 +27,6 @@ const App: FC = () => {
   const [userProfile, updateUserProfile] = useState<UserProfile>(defaultUserProfile)
 
   useEffect(() => {
-    // Simulate fetching data from an API
     const fetchUserProfile = async () => {
       try {
         const response = await fetch('http://localhost:8080/'); // Replace with your API endpoint

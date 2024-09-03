@@ -24,7 +24,7 @@
   - Github Runners - How do they work?
   - think about how this is going to be used for other sites
 
-### RUNNING THE APP
+### runningtheapp
 
 - need to create an aws account
 - create dynamodb table with some documents that fit the shapes found in the models package in the naws directory
@@ -48,3 +48,10 @@
 - 09-02-2024-01 fyi you aren't handling the error scenario when the api is down in a graceful way
 - 09-02-2024-02 added a models package to naws that will define the dynamo entries for each type
 - 09-02-2024-03 I think it will help to have a .env file to load in config data
+- 09-03-2024-01 Created Post object in Dynamo and wrote a Go function to retrieve them
+- 09-03-2024-02 Made a React useEffect of the Blog component to retrieve and render the Posts array
+
+### next
+
+- click the postcard and go to the post page
+- form to submit data to create posts

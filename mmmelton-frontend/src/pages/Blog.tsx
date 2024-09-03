@@ -1,28 +1,42 @@
-import React from 'react';
+import { FC, useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
 
-const Blog: React.FC = () => {
+interface Post {
+  pk: string;
+  sk: string;
+  title: string;
+  description: string;
+  body: string;
+  date: string;
+  image: string;
+}
 
-  const testData = [
-    { 
-      title: "Howdy Pardner", 
-      date: "Tuesday", 
-      description: "This was a wild trip.. Well, wild, but also lonesome. If you're ever headed out this way, you best keep in mind" 
-    },
-    { 
-      title: "Well worn daffodillo", 
-      date: "Thursdey", 
-      description: "The way I found the place was anybody's guess, but I'd need to retroactively leave some breadcrumbs in reverse, to mark the rereturn pathway" 
-    },
-  ]
+const Blog: FC = () => {
+  const [posts, updatePosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/posts');
+        if (!response.ok) {
+          throw new Error('Failed to fetch user profile');
+        }
+        const data: Post[] = await response.json();
+        updatePosts(data);
+        console.log("data: ", data)
+      } catch (err: any) {
+        throw new Error('catastrophe');
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <div className="p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <PostCard title={testData[0].title} date={testData[0].date} description={testData[0].description}/>
-      <PostCard title={testData[1].title} date={testData[1].date} description={testData[1].description}/>
-      <PostCard title={testData[0].title} date={testData[0].date} description={testData[0].description}/>
-      <PostCard title={testData[1].title} date={testData[1].date} description={testData[1].description}/>
-      <PostCard title={testData[0].title} date={testData[0].date} description={testData[0].description}/>
+      {posts.map((post, index) => (
+        <PostCard key={index} title={post.title} date={post.date} description={post.description} />
+      ))}
     </div>
   );
 };

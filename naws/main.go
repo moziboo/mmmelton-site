@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", utils.LambdaProxy(lambda.Hello))
+	http.HandleFunc("/", utils.LambdaProxy(lambda.User))
+	http.HandleFunc("/posts", utils.LambdaProxy(lambda.Posts))
 	http.ListenAndServe(":8080", nil)
 }
