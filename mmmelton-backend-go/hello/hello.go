@@ -17,10 +17,8 @@ func acceptableOrigin(origin string) bool {
 }
 
 func HandleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	// Initialize a map for headers
 	headers := make(map[string]string)
 
-	// Add some headers
 	headers["Content-Type"] = "application/json"
 	headers["Access-Control-Allow-Credentials"] = "true"
 	headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, Api-Key"
@@ -30,7 +28,6 @@ func HandleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRes
 		headers["Access-Control-Allow-Origin"] = req.Headers["origin"]
 	}
 
-	// Create a response that includes the request payload and headers
 	resp := events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       "We prolly going to do GOON things here",

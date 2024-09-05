@@ -50,8 +50,10 @@
 - 09-02-2024-03 I think it will help to have a .env file to load in config data
 - 09-03-2024-01 Created Post object in Dynamo and wrote a Go function to retrieve them
 - 09-03-2024-02 Made a React useEffect of the Blog component to retrieve and render the Posts array
+- 09-04-2024-01 go isn't great with serverless so I'm taking it out and puttin it in its own repo... archived
 
 ### next
 
+- rip out serverless go code and switch to node
 - click the postcard and go to the post page
 - form to submit data to create posts

@@ -8,7 +8,6 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-// Handler function for Lambda
 func handler(ctx context.Context, event events.APIGatewayCustomAuthorizerRequest) (events.APIGatewayCustomAuthorizerResponse, error) {
 	token := event.AuthorizationToken
 	apiKeyExpected := os.Getenv("API_KEY")
@@ -20,7 +19,6 @@ func handler(ctx context.Context, event events.APIGatewayCustomAuthorizerRequest
 	}
 }
 
-// Function to generate policy documents
 func generatePolicy(principalID string, effect string, resource string) events.APIGatewayCustomAuthorizerResponse {
 	policyDocument := events.APIGatewayCustomAuthorizerPolicy{
 		Version: "2012-10-17",

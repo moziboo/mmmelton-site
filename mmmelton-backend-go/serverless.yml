@@ -61,4 +61,3 @@ functions:
           method: get
           cors: ${self:custom.corsDefault}
           authorizer: ${self:custom.authorizerDefault}
-            
